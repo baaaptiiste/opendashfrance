@@ -26,5 +26,7 @@ htmlcov/
 # IDE / OS
 .vscode/
 .idea/
+# Config preview locale (chemin interpréteur spécifique à la machine)
+.claude/launch.json
 .DS_Store
 Thumbs.db

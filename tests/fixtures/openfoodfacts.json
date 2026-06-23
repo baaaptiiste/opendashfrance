@@ -1,0 +1,8 @@
+{
+  "count": 2,
+  "products": [
+    { "product_name": "Nutella", "brands": "Ferrero", "nutriscore_grade": "e" },
+    { "product_name": "Coca-Cola", "brands": "Coca-Cola", "nutriscore_grade": "e" },
+    { "product_name": "", "brands": "", "nutriscore_grade": null }
+  ]
+}

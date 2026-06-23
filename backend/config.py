@@ -20,7 +20,8 @@ BACKEND_DIR = Path(__file__).resolve().parent
 
 # --- Serveur ---
 HOST: str = os.getenv("OPENDASH_HOST", "127.0.0.1")
-PORT: int = int(os.getenv("OPENDASH_PORT", "5000"))
+# PORT (standard) prioritaire — permet aux outils d'attribuer un port libre.
+PORT: int = int(os.getenv("PORT") or os.getenv("OPENDASH_PORT") or "5000")
 
 # --- Cache SQLite ---
 CACHE_PATH: Path = Path(

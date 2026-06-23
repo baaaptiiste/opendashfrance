@@ -1,0 +1,9 @@
+{
+  "total_count": 4,
+  "results": [
+    { "type_local": "Appartement", "valeur_fonciere": 200000, "surface_reelle_bati": 50 },
+    { "type_local": "Maison", "valeur_fonciere": 450000, "surface_reelle_bati": 100 },
+    { "type_local": "Appartement", "valeur_fonciere": 300000, "surface_reelle_bati": 60 },
+    { "type_local": "Maison", "valeur_fonciere": 10000, "surface_reelle_bati": 0 }
+  ]
+}

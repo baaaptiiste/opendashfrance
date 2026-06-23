@@ -35,10 +35,16 @@ glisser-déposer, et tout fonctionne **sans aucune clé API**.
 | Base Adresse Nationale *(socle, pas un widget)* | — | — | 🟢 keyless | — | BAN (Etalab/DINUM) — Licence Ouverte 2.0 |
 | Fiche commune (population) | société | stat | 🟢 keyless | 30 j | API Géo (Etalab/DINUM) — Licence Ouverte 2.0 |
 | Météo (Open-Meteo) | météo | graphe | 🟢 keyless | 30 min | Open-Meteo.com — CC BY 4.0 |
+| Qualité de l'air | météo | stat | 🟢 keyless | 30 min | Open-Meteo.com (CAMS) — CC BY 4.0 |
 | Prix des carburants | énergie | carte | 🟢 keyless | 10 min | Min. Économie / prix-carburants.gouv.fr — Licence Ouverte |
+| Hydrométrie (Hub'Eau) | eau | carte | 🟢 keyless | 30 min | Hub'Eau / Eaufrance — Licence Ouverte |
+| Recherche d'entreprises | société | liste | 🟢 keyless | 1 h | recherche-entreprises.api.gouv.fr — Licence Ouverte |
+| Jours fériés | société | liste | 🟢 keyless | 24 h | calendrier.api.gouv.fr — Licence Ouverte |
+| Open Food Facts | alimentation | tableau | 🟢 keyless | 24 h | Open Food Facts — ODbL |
+| Prix immobilier (DVF) | immobilier | stat | 🟢 keyless | 24 j | DVF (Etalab/DGFiP) via Opendatasoft — Licence Ouverte |
 
-> Socle livré. Voir la [roadmap](#-roadmap) pour les sources à venir
-> (qualité de l'air, Hub'Eau, entreprises, jours fériés, Open Food Facts, DVF…).
+> **10 sources livrées, toutes keyless.** Les 5 types de rendu sont couverts
+> (stat, graphe, carte, liste, tableau). Voir la [roadmap](#-roadmap) pour la suite.
 
 ---
 
@@ -213,12 +219,14 @@ clé manque, la source apparaît grisée (🔒) dans la galerie.
 
 ## 🗺 Roadmap
 
-- [ ] Qualité de l'air (Open-Meteo Air Quality)
-- [ ] Hub'Eau hydrométrie (niveau des cours d'eau proches)
-- [ ] Recherche d'entreprises (recherche-entreprises.api.gouv.fr)
-- [ ] Jours fériés (calendrier.api.gouv.fr)
-- [ ] Open Food Facts (recherche produit / Nutri-Score)
-- [ ] DVF immobilier (prix des transactions par commune)
+- [x] Qualité de l'air (Open-Meteo Air Quality)
+- [x] Hub'Eau hydrométrie (stations des cours d'eau proches)
+- [x] Recherche d'entreprises (recherche-entreprises.api.gouv.fr)
+- [x] Jours fériés (calendrier.api.gouv.fr)
+- [x] Open Food Facts (Nutri-Score des produits populaires)
+- [x] DVF immobilier (prix médian au m² par localisation)
+- [ ] Niveau d'eau temps réel des stations Hub'Eau (pas que le référentiel)
+- [ ] Recherche produit OFF par mot-clé (champ de saisie par widget)
 - [ ] Contour de commune sur carte (GeoJSON)
 - [ ] Profils de dashboard sauvegardés côté backend (SQLite)
 - [ ] Export / partage de configuration

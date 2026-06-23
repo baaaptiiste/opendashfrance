@@ -1,0 +1,26 @@
+{
+  "count": 2,
+  "data": [
+    {
+      "code_station": "V123",
+      "libelle_station": "Rhône à Lyon",
+      "libelle_cours_eau": "Le Rhône",
+      "latitude_station": 45.7589,
+      "longitude_station": 4.8351
+    },
+    {
+      "code_station": "V124",
+      "libelle_station": "Saône à Lyon",
+      "libelle_cours_eau": "La Saône",
+      "latitude_station": 45.77,
+      "longitude_station": 4.83
+    },
+    {
+      "code_station": "V125",
+      "libelle_station": "Station sans coordonnées",
+      "libelle_cours_eau": null,
+      "latitude_station": null,
+      "longitude_station": null
+    }
+  ]
+}

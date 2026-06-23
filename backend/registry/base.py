@@ -39,6 +39,7 @@ class Context:
     lat: float | None = None
     lon: float | None = None
     code_insee: str | None = None
+    code_postal: str | None = None
     q: str | None = None
 
     @classmethod
@@ -56,6 +57,7 @@ class Context:
             lat=_float("lat"),
             lon=_float("lon"),
             code_insee=(args.get("code_insee") or None),
+            code_postal=(args.get("code_postal") or None),
             q=(args.get("q") or None),
         )
 
