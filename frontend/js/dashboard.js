@@ -4,6 +4,7 @@
 
 import { fetchData } from "./api.js";
 import { render } from "./widgets/index.js";
+import { themeMeta } from "./themes.js";
 import {
   state,
   addActive,
@@ -52,17 +53,22 @@ function mountWidget(id) {
   const meta = catalogue[id];
   if (!meta || document.getElementById(`w-${id}`)) return;
 
+  const tm = themeMeta(meta.theme);
   const el = document.createElement("section");
   el.className = "widget";
   el.id = `w-${id}`;
   el.draggable = true;
   el.dataset.id = id;
+  // Accent coloré du thème (bordure haute, icône, courbes…).
+  el.style.setProperty("--w-accent", tm.color);
+  el.style.setProperty("--w-accent-soft", tm.color + "22");
   el.innerHTML = `
     <div class="widget-head">
+      <span class="widget-icon">${tm.icon}</span>
       <h3 class="widget-title">${meta.nom}</h3>
       <button class="widget-close" aria-label="Retirer">×</button>
     </div>
-    <div class="widget-body"><div class="widget-loading">Chargement…</div></div>
+    <div class="widget-body"><div class="widget-loading"><div class="spinner"></div>Chargement…</div></div>
     <div class="widget-attr">${meta.attribution || ""}</div>
   `;
 
@@ -80,7 +86,7 @@ async function loadWidgetData(id) {
   const el = document.getElementById(`w-${id}`);
   if (!el) return;
   const body = el.querySelector(".widget-body");
-  body.innerHTML = `<div class="widget-loading">Chargement…</div>`;
+  body.innerHTML = `<div class="widget-loading"><div class="spinner"></div>Chargement…</div>`;
 
   const ctx = state.location || {};
   let env;
@@ -96,7 +102,8 @@ async function loadWidgetData(id) {
     body.innerHTML = `<div class="widget-error">${env.erreur || "Indisponible"}</div>`;
     return;
   }
-  render(meta.rendu, body, env);
+  // meta enrichie de l'habillage visuel du thème.
+  render(meta.rendu, body, env, { ...meta, ...themeMeta(meta.theme) });
 }
 
 // --- Drag & drop (réorganisation de la grille) ---

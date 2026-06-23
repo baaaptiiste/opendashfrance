@@ -3,14 +3,16 @@
   "results": [
     {
       "nom_complet": "BOULANGERIE DUPONT",
-      "activite_principale": "Boulangerie et boulangerie-pâtisserie",
-      "siege": { "libelle_commune": "LYON" }
+      "section_activite_principale": "Industrie manufacturière",
+      "siege": { "libelle_commune": "PARIS" },
+      "matching_etablissements": [{ "libelle_commune": "LYON 1ER" }]
     },
     {
       "nom_complet": "GARAGE MARTIN",
       "nom_raison_sociale": "GARAGE MARTIN SARL",
-      "activite_principale": "Entretien et réparation de véhicules",
-      "siege": { "libelle_commune": "LYON" }
+      "section_activite_principale": "Commerce",
+      "siege": { "libelle_commune": "PARIS" },
+      "matching_etablissements": [{ "libelle_commune": "LYON 2E" }]
     }
   ]
 }

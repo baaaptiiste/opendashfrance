@@ -1,20 +1,46 @@
-// Renderer "graphe" : Chart.js. Enveloppe attendue :
+// Renderer "graphe" : Chart.js + bandeau de résumé (actuel / min / max) pour
+// lire l'essentiel sans déchiffrer la courbe. Enveloppe :
 //   data: { type:"line|bar", labels:[], series:[{nom, points:[]}] }
 
-export function renderGraphe(body, env) {
+export function renderGraphe(body, env, meta = {}) {
   const d = env.data || {};
-  const canvas = document.createElement("canvas");
-  body.appendChild(canvas);
+  const accent = meta.color || "#4c8dff";
+  const serie = (d.series || [])[0];
+  const pts = (serie?.points || []).filter((p) => p != null);
 
-  const palette = ["#3b82f6", "#22c55e", "#f59e0b", "#ef4444"];
+  // Bandeau résumé dérivé de la 1re série (actuel = 1er point).
+  let resume = "";
+  if (pts.length) {
+    const actuel = pts[0];
+    const min = Math.min(...pts);
+    const max = Math.max(...pts);
+    const u = (serie.nom.match(/\(([^)]+)\)/) || [, ""])[1];
+    resume = `
+      <div class="summary">
+        <div class="chip big"><span>Actuel</span><strong>${actuel}${u}</strong></div>
+        <div class="chip"><span>Min</span><strong>${min}${u}</strong></div>
+        <div class="chip"><span>Max</span><strong>${max}${u}</strong></div>
+      </div>`;
+  }
+
+  body.innerHTML = resume + `<div class="graph-wrap"><canvas></canvas></div>`;
+  const canvas = body.querySelector("canvas");
+
+  const ctx = canvas.getContext("2d");
+  const grad = ctx.createLinearGradient(0, 0, 0, 200);
+  grad.addColorStop(0, accent + "55");
+  grad.addColorStop(1, accent + "00");
+
   const datasets = (d.series || []).map((s, i) => ({
     label: s.nom,
     data: s.points,
-    borderColor: palette[i % palette.length],
-    backgroundColor: palette[i % palette.length] + "33",
-    tension: 0.3,
+    borderColor: i === 0 ? accent : "#34d399",
+    backgroundColor: d.type === "bar" ? accent + "cc" : grad,
+    borderWidth: 2,
+    tension: 0.4,
     pointRadius: 0,
-    fill: d.type === "line",
+    pointHoverRadius: 4,
+    fill: d.type !== "bar",
   }));
 
   // eslint-disable-next-line no-undef
@@ -24,10 +50,16 @@ export function renderGraphe(body, env) {
     options: {
       responsive: true,
       maintainAspectRatio: false,
-      plugins: { legend: { labels: { color: "#9aa7b4" } } },
+      plugins: { legend: { display: false } },
       scales: {
-        x: { ticks: { color: "#9aa7b4", maxTicksLimit: 8 }, grid: { color: "#2c3845" } },
-        y: { ticks: { color: "#9aa7b4" }, grid: { color: "#2c3845" } },
+        x: {
+          ticks: { color: "#93a1b2", maxTicksLimit: 6, font: { size: 10 } },
+          grid: { display: false },
+        },
+        y: {
+          ticks: { color: "#93a1b2", font: { size: 10 } },
+          grid: { color: "#232c3955" },
+        },
       },
     },
   });

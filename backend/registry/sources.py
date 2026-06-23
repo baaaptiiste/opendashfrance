@@ -317,9 +317,12 @@ def parse_entreprises(payload) -> dict:
     results = payload.get("results", [])
     items = []
     for r in results:
-        siege = r.get("siege") or {}
-        ville = siege.get("libelle_commune") or ""
-        activite = r.get("activite_principale") or ""
+        # L'établissement LOCAL (celui qui correspond au filtre géo), pas le
+        # siège national : sinon on afficherait "Paris" pour une recherche Lyon.
+        etabs = r.get("matching_etablissements") or []
+        local = etabs[0] if etabs else (r.get("siege") or {})
+        ville = local.get("libelle_commune") or ""
+        activite = r.get("section_activite_principale") or ""
         items.append(
             {
                 "titre": r.get("nom_complet") or r.get("nom_raison_sociale") or "?",

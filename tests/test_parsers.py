@@ -129,7 +129,9 @@ def test_parse_entreprises(fx_entreprises):
     items = env["data"]["items"]
     assert len(items) == 2
     assert items[0]["titre"] == "BOULANGERIE DUPONT"
-    assert "LYON" in items[0]["sous_titre"]
+    # Doit afficher l'établissement local (Lyon), pas le siège (Paris).
+    assert "LYON 1ER" in items[0]["sous_titre"]
+    assert "PARIS" not in items[0]["sous_titre"]
 
 
 # --- Jours fériés (liste) --------------------------------------------------
