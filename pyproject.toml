@@ -1,0 +1,20 @@
+[project]
+name = "opendash-france"
+version = "0.1.0"
+description = "Dashboard modulaire agrégeant des API publiques françaises"
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+# Permet d'importer le package `backend` depuis la racine du dépôt en test.
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP", "B"]
+ignore = ["E501"]  # longueur gérée par le formatteur, on ne bloque pas dessus

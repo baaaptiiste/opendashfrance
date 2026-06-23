@@ -1,0 +1,28 @@
+{
+  "total_count": 2,
+  "results": [
+    {
+      "id": "69001",
+      "ville": "Lyon",
+      "adresse": "10 rue de la République",
+      "geom": { "lon": 4.8351, "lat": 45.7589 },
+      "gazole_prix": 1.789,
+      "sp95_prix": 1.899
+    },
+    {
+      "id": "69002",
+      "ville": "Villeurbanne",
+      "adresse": "5 cours Émile Zola",
+      "geom": { "lon": 4.8795, "lat": 45.7669 },
+      "gazole_prix": 1.799,
+      "e85_prix": 0.899
+    },
+    {
+      "id": "69003",
+      "ville": "Sans coordonnées",
+      "adresse": "ignorée",
+      "geom": null,
+      "gazole_prix": 1.75
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+# Byte-compiled / optimized
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environnements virtuels
+.venv/
+venv/
+env/
+
+# Variables d'environnement (clés API)
+.env
+
+# Cache local du dashboard (base SQLite)
+*.sqlite
+*.sqlite3
+*.db
+cache.sqlite
+
+# Tests / outils
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

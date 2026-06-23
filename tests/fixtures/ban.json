@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": { "type": "Point", "coordinates": [4.8351, 45.7589] },
+      "properties": {
+        "label": "Lyon",
+        "city": "Lyon",
+        "citycode": "69123",
+        "postcode": "69000"
+      }
+    }
+  ]
+}

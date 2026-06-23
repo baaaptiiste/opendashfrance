@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenDash France</title>
+
+  <!-- Leaflet (cartes) -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""
+  />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="logo">OpenDash <span>France</span></h1>
+
+    <form id="search-form" class="search">
+      <input
+        id="search-input"
+        type="text"
+        placeholder="Ville ou code postal…"
+        autocomplete="off"
+      />
+      <button type="submit">Rechercher</button>
+    </form>
+
+    <button id="toggle-gallery" class="btn-secondary">+ Widgets</button>
+  </header>
+
+  <!-- Bandeau de localisation courante -->
+  <div id="location-bar" class="location-bar hidden"></div>
+
+  <!-- Galerie de widgets (sources cochables par thème) -->
+  <aside id="gallery" class="gallery hidden">
+    <div class="gallery-head">
+      <h2>Galerie de widgets</h2>
+      <button id="close-gallery" class="btn-icon" aria-label="Fermer">×</button>
+    </div>
+    <div id="gallery-body"><!-- rempli par gallery.js --></div>
+  </aside>
+
+  <!-- Grille de widgets actifs -->
+  <main id="dashboard" class="dashboard">
+    <p id="empty-hint" class="empty-hint">
+      Cherchez une ville, puis ajoutez des widgets via « + Widgets ».
+    </p>
+  </main>
+
+  <footer class="footer">
+    <span>OpenDash France — données ouvertes publiques · MIT</span>
+  </footer>
+
+  <!-- Libs -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+    crossorigin=""
+  ></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+  <!-- App (modules ES) -->
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

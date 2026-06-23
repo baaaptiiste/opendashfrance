@@ -1,0 +1,8 @@
+[
+  {
+    "nom": "Lyon",
+    "code": "69123",
+    "population": 522969,
+    "centre": { "type": "Point", "coordinates": [4.8351, 45.7589] }
+  }
+]
